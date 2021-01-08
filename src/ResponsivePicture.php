@@ -6,7 +6,7 @@
  * @subpackage PixelsTheme
  */
 
-namespace Pixels\Theme\Images;
+namespace Pixels\Components\Images;
 
 use Pixels\Components\Images\ResponsiveImage;
 

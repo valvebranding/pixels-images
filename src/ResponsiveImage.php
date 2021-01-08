@@ -5,7 +5,7 @@
  * @package PixelsImages.
  */
 
-namespace Pixels\Theme\Images;
+namespace Pixels\Components\Images;
 
 // Contracts.
 use Pixels\Components\Images\Contracts\AbstractImage;
