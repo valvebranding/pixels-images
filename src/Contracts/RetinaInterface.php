@@ -5,7 +5,7 @@
  * @package PixelsImages
  */
 
-namespace Pixels\Components\Images;
+namespace Pixels\Components\Images\Contracts;
 
 /**
  * Retina interface
