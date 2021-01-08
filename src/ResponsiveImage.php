@@ -26,7 +26,7 @@ class ResponsiveImage extends AbstractImage implements RetinaInterface
      * @param string $size_name of image.
      * @return bool $has_retina true/false.
      */
-    public function has_retina($size_name)
+    public function has_retina(string $size_name) : bool
     {
         $has_retina = $this->sizes[ $size_name ][3];
 
