@@ -38,7 +38,7 @@ $sizes = array(
 );
 
 // Register sizes to image factory.
-ImageFactory::add_image_sizes( self::SIZES );
+ImageFactory::add_image_sizes( $sizes );
 
 /**
  * You can also optionally register css-style breakpoint for mobile / desktop.
