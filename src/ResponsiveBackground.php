@@ -50,7 +50,7 @@ class ResponsiveBackground extends ResponsiveImage
      *
      * @return string $html style of image.
      */
-    public function get_background()
+    public function get_html() : string
     {
         $html = '';
 

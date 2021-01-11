@@ -24,7 +24,7 @@ class ResponsivePicture extends ResponsiveImage
      *
      * @return string $html of image.
      */
-    public function get_picture()
+    public function get_html() : string
     {
         $html = '';
 

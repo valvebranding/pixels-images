@@ -90,7 +90,7 @@ class Factory
         $image->set_desktop_size($desktop_size);
         $image->set_alt_tag($alt);
 
-        return $image->get_picture();
+        return $image->get_html();
     }
 
     /**
@@ -114,6 +114,6 @@ class Factory
         $image->set_mobile_size($mobile_size);
         $image->set_desktop_size($desktop_size);
 
-        return $image->get_background();
+        return $image->get_html();
     }
 }

@@ -146,4 +146,9 @@ abstract class AbstractImage
      * Return urls array of image.
      */
     abstract public function get_urls();
+
+    /**
+     * Get html output of image.
+     */
+    abstract public function get_html() : string;
 }
