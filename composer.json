@@ -32,6 +32,6 @@
       ],
       "phpunit": [
         "phpunit --testdox"
-      ],
+      ]
     }
 }
