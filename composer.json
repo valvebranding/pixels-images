@@ -22,13 +22,16 @@
     },
     "scripts": {
       "test": [
-        "phpunit --testdox"
+        "composer lint"
       ],
       "lint": [
         "phpcs"
       ],
       "fix": [
         "phpcbf -p -w"
-      ]
+      ],
+      "phpunit": [
+        "phpunit --testdox"
+      ],
     }
 }
