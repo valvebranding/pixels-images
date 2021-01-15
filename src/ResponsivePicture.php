@@ -113,7 +113,7 @@ class ResponsivePicture extends ResponsiveImage
         ob_start();
         ?>
 
-        <img width="<?php echo esc_html($width); ?>px" height="<?php echo esc_html($height); ?>px" loading="lazy" src="<?php echo esc_html($urls[ $url_key ]); ?>" alt="<?php echo esc_html($this->get_alt_tag()); ?>">
+        <img width="<?php echo esc_html($width); ?>px" height="<?php echo esc_html($height); ?>px" loading="lazy" src="<?php echo esc_html($urls[ $url_key ]); ?>" alt="<?php echo esc_html($this->get_alt_tag()); ?>"/>
 
         <?php
         $img_tag = ob_get_clean();

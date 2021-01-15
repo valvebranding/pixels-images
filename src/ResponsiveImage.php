@@ -17,7 +17,7 @@ use Pixels\Components\Images\Contracts\RetinaInterface;
  * --> Append retina urls.
  * --> Output html
  */
-abstract class ResponsiveImage extends AbstractImage implements RetinaInterface
+class ResponsiveImage extends AbstractImage implements RetinaInterface
 {
 
     /**
@@ -96,5 +96,17 @@ abstract class ResponsiveImage extends AbstractImage implements RetinaInterface
     /**
      * Get html output of image.
      */
-    abstract public function get_html() : string;
+    public function get_html() : string
+    {
+        $html = '';
+
+        // Get urls array.
+        $urls = $this->get_urls();
+
+        $html .= '<img';
+        $html .= $urls['desktop'];
+        $html .= '/>';
+
+        return $html;
+    }
 }
