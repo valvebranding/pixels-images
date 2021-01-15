@@ -100,4 +100,22 @@ final class ResponsiveImageTest extends TestCase
             $image->get_urls()
         );
     }
+
+    /**
+     * Retina checks work.
+     */
+    public function testCanDetectRetinaSizes()
+    {
+        $sizes = array(
+            'page-hero'        => array( 1100, 500, true, true ),
+            'page-hero-mobile' => array( 375, 500, true, false ),
+        );
+
+        $image = new ResponsiveImage(123);
+        $image->add_theme_sizes( $sizes );
+
+        $this->assertTrue( $image->has_retina( 'page-hero' ) );
+
+        $this->assertFalse( $image->has_retina( 'page-hero-mobile' ) );
+    }
 }

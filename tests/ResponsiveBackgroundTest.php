@@ -99,4 +99,46 @@ final class ResponsiveBackgroundTest extends TestCase
             str_replace(' ', '', $image->get_html())
         );
     }
+
+    /**
+     * Can get html with disabled retina
+     */
+    public function testCanGetHtmlWithRetinaDisabled()
+    {
+        $sizes = array(
+            'page-hero'        => array( 1100, 500, true, false ),
+            'page-hero-mobile' => array( 375, 500, true, false ),
+        );
+
+        $image = new ResponsiveBackground(123);
+        $image->add_theme_sizes($sizes);
+        $image->add_breakpoint('600px');
+        $image->set_mobile_size('page-hero-mobile');
+        $image->set_desktop_size('page-hero');
+        $image->set_selector('#my_div');
+
+        /**
+         * Unfortunate formatting due to ob_get
+         * Comparison is strict about these things.
+         */
+        $expected = '<style>#my_div            {
+            background-image:url( https://www.pixels.fi/images/123-page-hero-mobile.jpg );            
+        }
+        @media only screen and (min-width : 600px ) {
+        #my_div {
+            background-image:url( https://www.pixels.fi/images/123-page-hero.jpg );
+        }
+        }
+        </style>';
+
+
+        /**
+         * ob_get leaves awful spacings.
+         * Clear them out for comparisons
+         */
+        $this->assertEquals(
+            str_replace(' ', '', $expected),
+            str_replace(' ', '', $image->get_html())
+        );
+    }
 }

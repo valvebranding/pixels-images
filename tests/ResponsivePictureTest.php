@@ -73,4 +73,38 @@ final class ResponsivePictureTest extends TestCase
             str_replace(' ', '', $image->get_html())
         );
     }
+
+    /**
+     * Can get html without retina
+     */
+    public function testCanGetHtmlWithRetinaDisabled()
+    {
+        $sizes = array(
+            'page-hero'        => array( 1100, 500, true, false ),
+            'page-hero-mobile' => array( 375, 500, true, false ),
+        );
+
+        $image = new ResponsivePicture(123);
+        $image->add_theme_sizes($sizes);
+        $image->add_breakpoint('600px');
+        $image->set_mobile_size('page-hero-mobile');
+        $image->set_desktop_size('page-hero');
+        $image->set_alt_tag('Alternative tag for img');
+
+        $expected = '<picture><source media="(max-width: 600px)" srcset="https://www.pixels.fi/images/123-page-hero-mobile.jpg">
+            <source media="(min-width: 600px)" srcset="https://www.pixels.fi/images/123-page-hero.jpg">
+
+            <img width="1100px" height="500px" loading="lazy" src="https://www.pixels.fi/images/123-page-hero.jpg" alt="Alternative tag for img" />
+            
+        </picture>';
+
+        /**
+         * ob_get leaves awful spacings.
+         * Clear them out for comparisons
+         */
+        $this->assertEquals(
+            str_replace(' ', '', $expected),
+            str_replace(' ', '', $image->get_html())
+        );
+    }
 }
