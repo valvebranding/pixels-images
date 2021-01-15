@@ -112,10 +112,10 @@ final class ResponsiveImageTest extends TestCase
         );
 
         $image = new ResponsiveImage(123);
-        $image->add_theme_sizes( $sizes );
+        $image->add_theme_sizes($sizes);
 
-        $this->assertTrue( $image->has_retina( 'page-hero' ) );
+        $this->assertTrue($image->has_retina('page-hero'));
 
-        $this->assertFalse( $image->has_retina( 'page-hero-mobile' ) );
+        $this->assertFalse($image->has_retina('page-hero-mobile'));
     }
 }
