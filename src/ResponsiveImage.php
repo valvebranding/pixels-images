@@ -44,10 +44,12 @@ class ResponsiveImage extends AbstractImage implements RetinaInterface
         $retina = false;
 
         if ($this->has_retina($size_name)) :
-            $retina = wp_get_attachment_image_src($this->id, $size_name . '-retina');
+            $image = wp_get_attachment_image_src($this->id, $size_name . '-retina');
+
+            $retina =  $image[0];
         endif;
 
-        return $retina[0];
+        return $retina;
     }
 
     /**
