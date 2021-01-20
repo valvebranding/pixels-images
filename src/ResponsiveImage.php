@@ -17,7 +17,7 @@ use Pixels\Components\Images\Contracts\RetinaInterface;
  * --> Append retina urls.
  * --> Output html
  */
-abstract class ResponsiveImage extends AbstractImage implements RetinaInterface
+class ResponsiveImage extends AbstractImage implements RetinaInterface
 {
 
     /**
@@ -44,10 +44,12 @@ abstract class ResponsiveImage extends AbstractImage implements RetinaInterface
         $retina = false;
 
         if ($this->has_retina($size_name)) :
-            $retina = wp_get_attachment_image_src($this->id, $size_name . '-retina');
+            $image = wp_get_attachment_image_src($this->id, $size_name . '-retina');
+
+            $retina =  $image[0];
         endif;
 
-        return $retina[0];
+        return $retina;
     }
 
     /**
@@ -96,5 +98,17 @@ abstract class ResponsiveImage extends AbstractImage implements RetinaInterface
     /**
      * Get html output of image.
      */
-    abstract public function get_html() : string;
+    public function get_html() : string
+    {
+        $html = '';
+
+        // Get urls array.
+        $urls = $this->get_urls();
+
+        $html .= '<img';
+        $html .= $urls['desktop'];
+        $html .= '/>';
+
+        return $html;
+    }
 }
