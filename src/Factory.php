@@ -51,7 +51,10 @@ class Factory
             add_image_size($name, $details[0], $details[1], $details[2]);
 
             // Check for retina enable.
-            if ($details[3]) :
+			$retina_enabled = $details[3] ?? false;
+
+			// Register retina size.
+            if ($retina_enabled) :
                 add_image_size($name . '-retina', $details[0] * 2, $details[1] * 2, $details[2]);
             endif;
         endforeach;
