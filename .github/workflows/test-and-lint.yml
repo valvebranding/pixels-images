@@ -22,6 +22,6 @@ jobs:
         extensions: mbstring, intl
         ini-values: post_max_size=256M, max_execution_time=180
         coverage: xdebug        
-        tools: php-cs-fixer, phpunit:${{ matrix.phpunit-versions }}, composer:v1
+        tools: php-cs-fixer, phpunit:${{ matrix.phpunit-versions }}, composer:v2
     - run: composer install
     - run: composer test
