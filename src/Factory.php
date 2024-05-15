@@ -31,7 +31,7 @@ class Factory
      * Breakpoint for switching from mobile img to desktop image
      * Will be used in <sources> and inline styles.
      *
-     * @var string.
+     * @var string
      */
     public static $breakpoint = '576px';
 
@@ -51,9 +51,9 @@ class Factory
             add_image_size($name, $details[0], $details[1], $details[2]);
 
             // Check for retina enable.
-			$retina_enabled = $details[3] ?? false;
+            $retina_enabled = $details[3] ?? false;
 
-			// Register retina size.
+            // Register retina size.
             if ($retina_enabled) :
                 add_image_size($name . '-retina', $details[0] * 2, $details[1] * 2, $details[2]);
             endif;
